@@ -4,28 +4,71 @@ import interfaces.IStack;
 
 public class Stack<T> implements IStack<T> {
 
+	private int size;
+	private Node<T> root;
+	private Node<T> last;
+	
+	public Stack() {
+		// TODO Auto-generated constructor stub
+		size = 0;
+		root = null;
+		last = null;
+	}
+	
 	@Override
 	public void push(T object) {
 		// TODO Auto-generated method stub
-		
+		Node<T> theNodo = new Node<T>(object);
+		if(root == null) {
+			root = theNodo;
+			last = theNodo;
+		}else {
+			Node<T> aux = root;
+			while(aux.getNext() != null) {
+				aux = aux.getNext();
+			}
+			aux.setNext(theNodo);
+			last = theNodo;
+		}
+		size++;
 	}
 
 	@Override
 	public T pop() {
 		// TODO Auto-generated method stub
-		return null;
+		if(root == null) {
+			return null;
+		}else {
+			if(size > 1) {
+				Node<T> aux = root;
+				while(aux.getNext() != last && aux.getNext() != null) {
+					aux = aux.getNext();
+				}
+				Node<T> deleted = aux.getNext();
+				last = aux;
+				aux.setNext(null);
+				size--;
+				return deleted.getDate();
+			}else {
+				Node<T> deleted = root;
+				root = null;
+				last = null;
+				size--;
+				return deleted.getDate();
+			}
+		}
 	}
 
 	@Override
 	public T peek() {
 		// TODO Auto-generated method stub
-		return null;
+		return last.getDate();
 	}
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.size;
 	}
 
 }
