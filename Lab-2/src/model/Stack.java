@@ -2,11 +2,11 @@ package model;
 
 import interfaces.IStack;
 
-public class Stack<T> implements IStack<T> {
+public class Stack<T, K> implements IStack<T> {
 
 	private int size;
-	private Node<T> root;
-	private Node<T> last;
+	private Node<T, K> root;
+	private Node<T, K> last;
 	
 	public Stack() {
 		// TODO Auto-generated constructor stub
@@ -18,12 +18,12 @@ public class Stack<T> implements IStack<T> {
 	@Override
 	public void push(T object) {
 		// TODO Auto-generated method stub
-		Node<T> theNodo = new Node<T>(object);
+		Node<T, K> theNodo = new Node<T, K>(object);
 		if(root == null) {
 			root = theNodo;
 			last = theNodo;
 		}else {
-			Node<T> aux = root;
+			Node<T, K> aux = root;
 			while(aux.getNext() != null) {
 				aux = aux.getNext();
 			}
@@ -40,17 +40,17 @@ public class Stack<T> implements IStack<T> {
 			return null;
 		}else {
 			if(size > 1) {
-				Node<T> aux = root;
+				Node<T, K> aux = root;
 				while(aux.getNext() != last && aux.getNext() != null) {
 					aux = aux.getNext();
 				}
-				Node<T> deleted = aux.getNext();
+				Node<T, K> deleted = aux.getNext();
 				last = aux;
 				aux.setNext(null);
 				size--;
 				return deleted.getDate();
 			}else {
-				Node<T> deleted = root;
+				Node<T, K> deleted = root;
 				root = null;
 				last = null;
 				size--;

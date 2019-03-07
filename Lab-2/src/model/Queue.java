@@ -2,11 +2,11 @@ package model;
 
 import interfaces.IQueue;
 
-public class Queue<T> implements IQueue<T> {
+public class Queue<T, K> implements IQueue<T> {
 
 	private int size;
-	private Node<T> root;
-	private Node<T> last;
+	private Node<T, K> root;
+	private Node<T, K> last;
 	
 	public Queue() {
 		size = 0;
@@ -17,12 +17,12 @@ public class Queue<T> implements IQueue<T> {
 	@Override
 	public void enqueue(T object) {
 		// TODO Auto-generated method stub
-		Node<T> theNodo = new Node<T>(object);
+		Node<T, K> theNodo = new Node<T, K>(object);
 		if(root == null) {
 			root = theNodo;
 			last = theNodo;
 		}else {
-			Node<T> aux = root;
+			Node<T, K> aux = root;
 			while(aux.getNext() != null) {
 				aux = aux.getNext();
 			}
@@ -38,7 +38,7 @@ public class Queue<T> implements IQueue<T> {
 		if(root == null) {
 			return null;
 		}else {
-			Node<T> deleted = root;
+			Node<T, K> deleted = root;
 			root = deleted.getNext();
 			size--;
 			return deleted.getDate();
