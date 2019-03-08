@@ -58,7 +58,22 @@ public static final double LIMIT_FACTOR = 0.65;
 	@Override
 	public T delete(K key) {
 		// TODO Auto-generated method stub
-		return null;
+		boolean deleted = false;
+		T temporary = null;
+		for(int i = 0; i < arrayHash.length && !deleted; i++) {
+			int position = funcionHash(key, i);
+			if(arrayHash[position] != null) {
+				if(arrayHash[position].getKey() == key) {
+					temporary = (T) arrayHash[position].getDate();
+					System.out.println("Eliminado en la posicion: "+position);
+					arrayHash[position] = null;
+					slotFull--;
+					chargeFactor = calculateChargeFactor();
+					deleted = true;
+				}
+			}
+		}
+		return temporary;
 	}
 
 	@Override
