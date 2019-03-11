@@ -11,13 +11,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class PayController {
+public class StackController {
 
 	@FXML public Button out;
 	
-	public void initialize() {
-		
-	}
+	
 	
 	public void out(Event event) {
 		try {
@@ -32,5 +30,4 @@ public class PayController {
 			e.printStackTrace();
 		}
 	}
-	
 }
