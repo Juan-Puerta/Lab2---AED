@@ -3,6 +3,7 @@ package application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import model.Library;
 import model.User;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -13,6 +14,24 @@ public class Main extends Application {
 	private static String nombre;
 	private static String time;
 	
+	
+	private static Library library;
+	
+	public Main() {
+		library = new Library(3, 3);
+	}
+	
+	
+	public static Library getLibrary() {
+		return library;
+	}
+
+
+	public void setLibrary(Library library) {
+		this.library = library;
+	}
+
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -45,5 +64,6 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+
 	}
 }

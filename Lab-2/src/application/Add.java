@@ -11,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Book;
+import model.Library;
 
 public class Add {
 
@@ -29,6 +31,8 @@ public class Add {
 	}
 	
 	public void add() {
+		Book book = new Book(Integer.parseInt(value.getText()),isbn.getText(), Integer.parseInt(quantify.getText()));
+		main.getLibrary().getBooks().insert(book, isbn.getText());
 		isbn.setText("");
 		quantify.setText("");
 		value.setText("");

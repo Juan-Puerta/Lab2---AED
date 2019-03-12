@@ -46,12 +46,12 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Button fx:id="stack" layoutX="326.0" layoutY="96.0" mnemonicParsing="false" onAction="#Stack" prefHeight="51.0" prefWidth="302.0" text="VER ESTANTERIAS">
+      <Button fx:id="stack" layoutX="326.0" layoutY="96.0" mnemonicParsing="false" onAction="#Stack" prefHeight="51.0" prefWidth="302.0" text="AÑADIR LIBRO">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="shoppingCart" layoutX="326.0" layoutY="188.0" mnemonicParsing="false" onAction="#shoppingCart" prefHeight="51.0" prefWidth="302.0" text="VER CARRITO">
+      <Button fx:id="shoppingCart" layoutX="326.0" layoutY="188.0" mnemonicParsing="false" onAction="#shoppingCart" prefHeight="51.0" prefWidth="302.0" text="BUSCAR LIBRO">
          <font>
             <Font size="20.0" />
          </font>
