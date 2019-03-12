@@ -10,11 +10,9 @@ import javafx.scene.layout.Pane;
 
 
 public class Main extends Application {
-	private static User user;
+	private static String nombre;
+	private static String time;
 	
-	public Main() {
-		user = new User<String>();
-	}
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -29,12 +27,20 @@ public class Main extends Application {
 	}
 	
 	
-	public static User getUser() {
-		return user;
+	public static String getNombre() {
+		return nombre;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public static void setNombre(String nombre) {
+		Main.nombre = nombre;
+	}
+
+	public static String getTime() {
+		return time;
+	}
+
+	public static void setTime(String time) {
+		Main.time = time;
 	}
 
 	public static void main(String[] args) {

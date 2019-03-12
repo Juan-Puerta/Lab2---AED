@@ -27,8 +27,9 @@ public class BannerController {
 	
 	public void enter(Event event) {
 		date = new Date();	
-		main.getUser().setName(txName.getText());
-		main.getUser().setTime(date.getHours()+":"+date.getMinutes());
+		main.setNombre(txName.getText());
+		main.setTime(date.getHours()+":"+date.getMinutes());
+		
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("Shelving.fxml"));
 			Scene scene = new Scene(root);

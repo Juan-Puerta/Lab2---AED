@@ -17,21 +17,21 @@ public class ShelvingController {
 
 	@FXML private Label name;
 	@FXML private Label time;
-	@FXML public Button stack;
-	@FXML public Button shoppingCart;
+	@FXML public Button add;
+	@FXML public Button search;
 	@FXML public Button pay;
 	@FXML public Button out;
 	
 	public static Main main;
 	
 	public void initialize() {
-		name.setText((String) main.getUser().getName());
-		time.setText((String) main.getUser().getTime());
+		name.setText(main.getNombre());
+		time.setText(main.getTime());
 	}
 	
 	public void Stack(Event event) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("Stack.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Add.fxml"));
 			Scene scene = new Scene(root);
 			Stage windows = (Stage)((Node)event.getSource()).getScene().getWindow();
 			
@@ -45,7 +45,7 @@ public class ShelvingController {
 	
 	public void shoppingCart(Event event) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("shoppingCart.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Search.fxml"));
 			Scene scene = new Scene(root);
 			Stage windows = (Stage)((Node)event.getSource()).getScene().getWindow();
 			

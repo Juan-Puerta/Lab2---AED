@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class ShoppingCart {
+public class Search {
 	
 	@FXML public Button out;
 	
