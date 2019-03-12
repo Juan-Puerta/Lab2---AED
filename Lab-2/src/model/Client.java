@@ -8,11 +8,11 @@ public class Client implements Comparable<Client> {
 	private Stack<Book, String> purchase;
 	private int time;
 	
-	public Client(String id, int purchaseAmount) {
+	public Client(String id) {
 	
 		this.id = id;
 		this.purchase = new Stack<Book, String>() ;
-		this.purchaseAmount = purchaseAmount;
+		this.purchaseAmount = 0;
 		this.time = time;
 	}
 
