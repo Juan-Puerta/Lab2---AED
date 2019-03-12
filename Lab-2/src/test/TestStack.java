@@ -5,12 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import model.Book;
 import model.Stack;
 
 class TestStack {
 	
 	private Stack<Integer, String> theStackInteger;
 	private Stack<String, String> theStackString;
+	private Stack<Book, Integer> theStackBook;
 	
 	public void stageOne() {
 		theStackInteger = new Stack<Integer, String>();
@@ -30,7 +32,13 @@ class TestStack {
 	
 	
 	public void stageThree() {
-		
+		theStackBook = new Stack<Book, Integer>();
+		Book l1 = new Book(12000, "A1", 3);
+		Book l2 = new Book(80000, "A2", 2);
+		Book l3 = new Book(50000, "A3", 1);
+		theStackBook.push(l1);
+		theStackBook.push(l2);
+		theStackBook.push(l3);
 	}
 	
 	
@@ -76,5 +84,28 @@ class TestStack {
 		assertEquals("Soy", theStackString.peek());	
 	}
 	
+	@Test
+	public void testPushStageThree() {
+		stageThree();
+		Book l4 = new Book(100000, "A4", 4);
+		theStackBook.push(l4);
+		assertEquals(100000, theStackBook.peek().getValue());
+		assertEquals(4,theStackBook.size());
+	}
+	
+	@Test
+	public void testPopStageThree() {
+		stageThree();
+		assertEquals(50000, theStackBook.pop().getValue());
+		assertEquals(2, theStackBook.size());
+	}
+	
+	
+	@Test 
+	public void testPeekStageThree() {
+		stageThree();
+		assertEquals(50000, theStackBook.peek().getValue());
+		assertEquals(3, theStackBook.size());
+	}
 	
 }

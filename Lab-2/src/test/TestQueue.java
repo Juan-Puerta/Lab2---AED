@@ -1,9 +1,11 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import model.Book;
 import model.Queue;
 import model.Stack;
 
@@ -11,6 +13,7 @@ class TestQueue {
 
 	private Queue<Integer, String> theQueueInteger;
 	private Queue<String, String> theQueueString;
+	private Queue<Book, Integer> theQueueBook;
 	
 	public void stageOne() {
 		theQueueInteger = new Queue<Integer, String>();
@@ -28,7 +31,13 @@ class TestQueue {
 	}
 	
 	public void stageThree() {
-		
+		theQueueBook = new Queue<Book, Integer>();
+		Book l1 = new Book(12000, "A1", 3);
+		Book l2 = new Book(80000, "A2", 2);
+		Book l3 = new Book(50000, "A3", 1);
+		theQueueBook.enqueue(l1);
+		theQueueBook.enqueue(l2);
+		theQueueBook.enqueue(l3);
 	}
 
 	@Test
@@ -70,6 +79,30 @@ class TestQueue {
 	public void testFrontStageTwo() {
 		stageTwo();
 		assertEquals("Hola",theQueueString.front());
+	}
+	
+	@Test
+	public void testEnqueueStageThree() {
+		stageThree();
+		Book l4 = new Book(100000, "A4", 4);
+		theQueueBook.enqueue(l4);
+		assertEquals(100000, theQueueBook.back().getValue());
+		assertEquals(4,theQueueBook.size());
+	}
+	
+	@Test
+	public void testDequeueStageThree() {
+		stageThree();
+		assertEquals(12000, theQueueBook.dequeue().getValue());
+		assertEquals(2, theQueueBook.size());
+	}
+	
+	
+	@Test 
+	public void testFrontStageThree() {
+		stageThree();
+		assertEquals(12000, theQueueBook.front().getValue());
+		assertEquals(3, theQueueBook.size());
 	}
 	
 	
