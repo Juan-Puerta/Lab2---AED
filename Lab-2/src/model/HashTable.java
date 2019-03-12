@@ -39,7 +39,7 @@ public static final double LIMIT_FACTOR = 0.65;
 					insert = true;
 					System.out.println("Se inserto en: "+position);
 				}else {
-					if(arrayHash[position].getDate() == object) {
+					if(arrayHash[position].getKey().equals(key)) {
 //						|| arregloHash[posicion].getPosition() == posicion
 //						arregloHash[posicion].getPosition() == posicion
 						insert = true;
@@ -63,7 +63,7 @@ public static final double LIMIT_FACTOR = 0.65;
 		for(int i = 0; i < arrayHash.length && !deleted; i++) {
 			int position = funcionHash(key, i);
 			if(arrayHash[position] != null) {
-				if(arrayHash[position].getKey() == key) {
+				if(arrayHash[position].equals(key)) {
 					temporary = (T) arrayHash[position].getDate();
 					System.out.println("Eliminado en la posicion: "+position);
 					arrayHash[position] = null;
@@ -87,7 +87,7 @@ public static final double LIMIT_FACTOR = 0.65;
 //				posicion -= arregloHash.length;
 //			}
 			if(arrayHash[position] != null) {
-				if(arrayHash[position].getKey() == key) {
+				if(arrayHash[position].getKey().equals(key)) {
 					temporary = (T) arrayHash[position].getDate();
 					System.out.println("Encontrado en la posicion: "+position);
 					found = true;

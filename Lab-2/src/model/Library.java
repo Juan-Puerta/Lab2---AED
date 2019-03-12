@@ -1,70 +1,65 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class Library {
 
-	private String name;
-	private String id;
-	private String adress;
+	private int amountBookShelfs;
+	private int amountBoxes;
+	private HashTable<Book, String> books;
+	private Queue<Client> clients;
 	
-	private BookShelf[] shelves;
-	private ArrayList<Client> clients = new ArrayList<>();
 
-	public Library(String name, String id, String adress, BookShelf[] shelves, ArrayList<Client> clients) {
-		super();
-		this.name = name;
-		this.id = id;
-		this.adress = adress;
-		this.shelves = shelves;
-		this.clients = clients;
+	public Library(int amountBoxes, int amountBookShelfs) {
 		
+		this.amountBookShelfs = amountBookShelfs;
+		this.amountBoxes = amountBoxes;
+		this.clients = new PriorityQueue<Client>();
+		this.books = new HashTable<Book, String>();
 	}
 
-
-	public String getName() {
-		return name;
+	public int getAmountBookShelfs() {
+		return amountBookShelfs;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAmountBookShelfs(int amountBookShelfs) {
+		this.amountBookShelfs = amountBookShelfs;
 	}
 
-	public String getId() {
-		return id;
+	public int getAmountBoxes() {
+		return amountBoxes;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setAmountBoxes(int amountBoxes) {
+		this.amountBoxes = amountBoxes;
 	}
 
-	public String getAdress() {
-		return adress;
+	public HashTable<Book, String> getBooks() {
+		return books;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setBooks(HashTable<Book, String> books) {
+		this.books = books;
 	}
 
-	public BookShelf[] getShelves() {
-		return shelves;
-	}
-
-	public void setShelves(BookShelf[] shelves) {
-		this.shelves = shelves;
-	}
-
-
-	public ArrayList<Client> getClients() {
+	public Queue<Client> getClients() {
 		return clients;
 	}
 
-
-	public void setClients(ArrayList<Client> clients) {
+	public void setClients(Queue<Client> clients) {
 		this.clients = clients;
 	}
+
+//	public static void main (String[] args) {
+//		Library laLibrary = new Library(3, 3);
+//		Book elBook = new Book(10000, "123", 6);
+//		laLibrary.getBooks().insert(elBook, elBook.getIsbn());
+//		System.out.println(laLibrary.getBooks().search("123").getValue());
+//		
+//	}
 	
-	
-	
+
 	
 }
