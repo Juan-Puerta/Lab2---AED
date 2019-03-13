@@ -63,7 +63,7 @@ public static final double LIMIT_FACTOR = 0.65;
 		for(int i = 0; i < arrayHash.length && !deleted; i++) {
 			int position = funcionHash(key, i);
 			if(arrayHash[position] != null) {
-				if(arrayHash[position].equals(key)) {
+				if(arrayHash[position].getKey().equals(key)) {
 					temporary = (T) arrayHash[position].getDate();
 					System.out.println("Eliminado en la posicion: "+position);
 					arrayHash[position] = null;
