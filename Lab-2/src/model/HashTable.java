@@ -37,7 +37,7 @@ public static final double LIMIT_FACTOR = 0.65;
 					slotFull++;
 					chargeFactor = calculateChargeFactor();
 					insert = true;
-					System.out.println("Se inserto en: "+position);
+//					System.out.println("Se inserto en: "+position);
 				}else {
 					if(arrayHash[position].getKey().equals(key)) {
 //						|| arregloHash[posicion].getPosition() == posicion

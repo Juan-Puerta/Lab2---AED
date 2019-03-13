@@ -8,7 +8,7 @@ public class Client implements Comparable<Client> {
 	private Stack<Book, String> purchase;
 	private int time;
 	
-	public Client(String id) {
+	public Client(String id, int time) {
 	
 		this.id = id;
 		this.purchase = new Stack<Book, String>() ;
@@ -58,14 +58,20 @@ public class Client implements Comparable<Client> {
 
 
 	public void setTime(int time) {
-		this.time = time;
+		this.time += time;
 	}
 
 
 	@Override
-	public int compareTo(Client arg0) {
+	public int compareTo(Client theClient) {
 		// TODO Auto-generated method stub
-		return 0;
+		  if (time > theClient.getTime()) {
+	            return 1;
+	        } else if (time < theClient.getTime()) {
+	            return -1;
+	        } else {
+	            return 0;
+	        }
 	}
 	
 	
