@@ -1,4 +1,4 @@
-package heaps;
+package model;
 
 public class MinHeap<T extends Comparable<T>> {
     private T[] Heap;
@@ -113,24 +113,5 @@ public class MinHeap<T extends Comparable<T>> {
     	size = tmp;
     }
     
- 
-    @SuppressWarnings("unchecked")
-	public static void main(String[] args) {
-        @SuppressWarnings("rawtypes")
-		MinHeap<Integer> minHeap = new MinHeap<>(15);
-        minHeap.insert(5);
-        minHeap.insert(3);
-        minHeap.insert(17);
-        minHeap.insert(10);
-        minHeap.insert(84);
-        minHeap.insert(19);
-        minHeap.insert(6);
-        minHeap.insert(22);
-        minHeap.insert(9);
-        minHeap.print();
-        minHeap.heapsort();
-        minHeap.print();
-        MinHeap<Integer> minHeap1 = new MinHeap<>(new Integer[] {12, 8, 9, 17, 4, 55},15);
-        minHeap1.print();
-    }
+
 }

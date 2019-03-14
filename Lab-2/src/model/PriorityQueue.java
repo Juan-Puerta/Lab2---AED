@@ -1,10 +1,12 @@
-package heaps;
+package model;
 
-public class MinPriorityQueue<T extends Comparable<T>>  {
+import interfaces.IPriorityQueue;
+
+public class PriorityQueue<T extends Comparable<T>> implements IPriorityQueue<T>{
 
 	private MinHeap<T> heap;
 
-	public MinPriorityQueue(int maxsize) {
+	public PriorityQueue(int maxsize) {
 		heap = new MinHeap<>(maxsize);
 	}
 
@@ -14,7 +16,7 @@ public class MinPriorityQueue<T extends Comparable<T>>  {
 		else {
 			T minVal = heap.get(1);
 			heap.set(1, heap.get(heap.getSize()));  
-			heap.remove(heap.getSize());
+			heap.remove(1);
 			return minVal;
 		}
 	}
@@ -33,4 +35,5 @@ public class MinPriorityQueue<T extends Comparable<T>>  {
 		else
 			return heap.get(1);
 	}	
+
 }

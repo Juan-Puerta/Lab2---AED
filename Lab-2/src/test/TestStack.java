@@ -33,9 +33,9 @@ class TestStack {
 	
 	public void stageThree() {
 		theStackBook = new Stack<Book, Integer>();
-		Book l1 = new Book(12000, "A1", 3);
-		Book l2 = new Book(80000, "A2", 2);
-		Book l3 = new Book(50000, "A3", 1);
+		Book l1 = new Book(12000);
+		Book l2 = new Book(80000);
+		Book l3 = new Book(50000);
 		theStackBook.push(l1);
 		theStackBook.push(l2);
 		theStackBook.push(l3);
@@ -87,7 +87,7 @@ class TestStack {
 	@Test
 	public void testPushStageThree() {
 		stageThree();
-		Book l4 = new Book(100000, "A4", 4);
+		Book l4 = new Book(100000);
 		theStackBook.push(l4);
 		assertEquals(100000, theStackBook.peek().getValue());
 		assertEquals(4,theStackBook.size());
