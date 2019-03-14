@@ -43,9 +43,9 @@ public static final double LIMIT_FACTOR = 0.65;
 //						|| arregloHash[posicion].getPosition() == posicion
 //						arregloHash[posicion].getPosition() == posicion
 						insert = true;
-						System.out.println("El objeto ya esta insertado o llave hash repetida");
+//						System.out.println("El objeto ya esta insertado o llave hash repetida");
 					}else {
-						System.out.println("Colision en: "+position);
+//						System.out.println("Colision en: "+position);
 					}
 				}
 			}
@@ -65,7 +65,7 @@ public static final double LIMIT_FACTOR = 0.65;
 			if(arrayHash[position] != null) {
 				if(arrayHash[position].getKey().equals(key)) {
 					temporary = (T) arrayHash[position].getDate();
-					System.out.println("Eliminado en la posicion: "+position);
+//					System.out.println("Eliminado en la posicion: "+position);
 					arrayHash[position] = null;
 					slotFull--;
 					chargeFactor = calculateChargeFactor();
@@ -89,7 +89,7 @@ public static final double LIMIT_FACTOR = 0.65;
 			if(arrayHash[position] != null) {
 				if(arrayHash[position].getKey().equals(key)) {
 					temporary = (T) arrayHash[position].getDate();
-					System.out.println("Encontrado en la posicion: "+position);
+//					System.out.println("Encontrado en la posicion: "+position);
 					found = true;
 				}
 			}

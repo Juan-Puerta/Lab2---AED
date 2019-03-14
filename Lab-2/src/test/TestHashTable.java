@@ -30,9 +30,9 @@ class TestHashTable {
 	
 	private void stageThree() {
 		theHashTableBook = new HashTable<Book, Integer>();
-		Book l1 = new Book(12000);
-		Book l2 = new Book(80000);
-		Book l3 = new Book(50000);
+		Book l1 = new Book(12000, "123");
+		Book l2 = new Book(80000, "456");
+		Book l3 = new Book(50000, "789");
 		theHashTableBook.insert(l1, l1.getValue());
 		theHashTableBook.insert(l2, l2.getValue());
 		theHashTableBook.insert(l3, l3.getValue());
@@ -80,7 +80,7 @@ class TestHashTable {
 	@Test
 	public void testInsertStageThree() {
 		stageThree();
-		Book l4 = new Book(100000);
+		Book l4 = new Book(100000, "135");
 		theHashTableBook.insert(l4, l4.getValue());
 		assertEquals(12000, theHashTableBook.search(12000).getValue());
 	}

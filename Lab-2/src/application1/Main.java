@@ -24,6 +24,7 @@ public class Main {
 		int mountBox = Integer.parseInt(br.readLine());
 		int mountShelving = Integer.parseInt(br.readLine());
 		
+		
 		Library theLibrary = new Library(mountBox, mountShelving);
 		
 		for(int i = 0; i < mountShelving; i++) {
@@ -34,7 +35,7 @@ public class Main {
 			for(int j = 0; j < Integer.parseInt(infoBookShelf[1]); j++) {
 				String[] infoShelf = br.readLine().split(" ");
 				Shelf theShelf = new Shelf(infoShelf[0], Integer.parseInt(infoShelf[2]));
-				Book theBook = new Book(Integer.parseInt(infoShelf[1]));
+				Book theBook = new Book(Integer.parseInt(infoShelf[1]), infoShelf[0]);
 				theShelf.getQueueBooks().enqueue(theBook);
 				theBookShelf.getShelfs().insert(theShelf, theShelf.getIsbn());
 			}
@@ -50,16 +51,15 @@ public class Main {
 //		System.out.println(theLibrary.getTheBookShelfs()[1].getShelfs().search("112").getQueueBooks().front().getValue());
 		int amountClients = Integer.parseInt(br.readLine());
 		for(int i = 0; i < amountClients; i++) {
-			
 			String[] infoClient = br.readLine().split(" ");
 			Client theClient = new Client(infoClient[0], i+infoClient.length);
-			
-			
-			
+			for(int j = 1; j < infoClient.length; j++) {
+				theClient.getPurchase().push(theLibrary.searchBook(infoClient[j]));
+			}
 			theLibrary.getTheClients().insert(theClient);
 		}
 		
-		
+		System.out.println(theLibrary.attend(theLibrary.getTheClients()));
 		
 		
 //		library = new Library(3, 3);

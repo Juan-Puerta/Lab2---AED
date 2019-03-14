@@ -7,6 +7,7 @@ public class Client implements Comparable<Client> {
 	private int purchaseAmount;
 	private Stack<Book, String> purchase;
 	private int time;
+	private String theBought;
 	
 	public Client(String id, int time) {
 	
@@ -14,6 +15,7 @@ public class Client implements Comparable<Client> {
 		this.purchase = new Stack<Book, String>() ;
 		this.purchaseAmount = 0;
 		this.time = time;
+		theBought = "";
 	}
 
 
@@ -36,7 +38,7 @@ public class Client implements Comparable<Client> {
 
 
 	public void setPurchaseAmount(int purchaseAmount) {
-		this.purchaseAmount = purchaseAmount;
+		this.purchaseAmount += purchaseAmount;
 	}
 
 
@@ -61,6 +63,17 @@ public class Client implements Comparable<Client> {
 		this.time += time;
 	}
 
+	
+
+	public String getTheBought() {
+		return theBought;
+	}
+
+
+	public void setTheBought(String theBought) {
+		this.theBought += theBought+" ";
+	}
+
 
 	@Override
 	public int compareTo(Client theClient) {
@@ -75,5 +88,14 @@ public class Client implements Comparable<Client> {
 	}
 	
 	
+	public void buyBook() {
+		Book aux = null;
+		if(purchase.size()!=0) {
+			aux = purchase.pop();
+			theBought += aux.getIsbn()+" ";
+			purchaseAmount += aux.getValue();
+		}
+		
+	}
 
 }

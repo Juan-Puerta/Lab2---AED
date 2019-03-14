@@ -32,9 +32,9 @@ class TestQueue {
 	
 	public void stageThree() {
 		theQueueBook = new Queue<Book, Integer>();
-		Book l1 = new Book(12000);
-		Book l2 = new Book(80000);
-		Book l3 = new Book(50000);
+		Book l1 = new Book(12000, "123");
+		Book l2 = new Book(80000, "456");
+		Book l3 = new Book(50000, "789");
 		theQueueBook.enqueue(l1);
 		theQueueBook.enqueue(l2);
 		theQueueBook.enqueue(l3);
@@ -84,7 +84,7 @@ class TestQueue {
 	@Test
 	public void testEnqueueStageThree() {
 		stageThree();
-		Book l4 = new Book(100000);
+		Book l4 = new Book(100000, "135");
 		theQueueBook.enqueue(l4);
 		assertEquals(100000, theQueueBook.back().getValue());
 		assertEquals(4,theQueueBook.size());
