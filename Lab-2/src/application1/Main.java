@@ -35,8 +35,10 @@ public class Main {
 			for(int j = 0; j < Integer.parseInt(infoBookShelf[1]); j++) {
 				String[] infoShelf = br.readLine().split(" ");
 				Shelf theShelf = new Shelf(infoShelf[0], Integer.parseInt(infoShelf[2]));
-				Book theBook = new Book(Integer.parseInt(infoShelf[1]), infoShelf[0]);
-				theShelf.getQueueBooks().enqueue(theBook);
+				for(int a = 0; a < Integer.parseInt(infoShelf[2]); a++) {
+					Book theBook = new Book(Integer.parseInt(infoShelf[1]), infoShelf[0]);
+					theShelf.getQueueBooks().enqueue(theBook);
+				}
 				theBookShelf.getShelfs().insert(theShelf, theShelf.getIsbn());
 			}
 			
@@ -48,18 +50,30 @@ public class Main {
 				}
 			}	
 		}
-//		System.out.println(theLibrary.getTheBookShelfs()[1].getShelfs().search("112").getQueueBooks().front().getValue());
+//		System.out.println(theLibrary.getTheBookShelfs()[0].getShelfs().search("612").getQueueBooks().size());
+//		System.out.println(theLibrary.searchBook("612").getValue());
+//		System.out.println(theLibrary.getTheBookShelfs()[0].getShelfs().search("612").getQueueBooks().size());
+//		System.out.println(theLibrary.searchBook("287").getValue());
 		int amountClients = Integer.parseInt(br.readLine());
+//		System.out.println(amountClients);
 		for(int i = 0; i < amountClients; i++) {
 			String[] infoClient = br.readLine().split(" ");
 			Client theClient = new Client(infoClient[0], i+infoClient.length);
+//			System.out.println(theClient.getTime());
 			for(int j = 1; j < infoClient.length; j++) {
-				theClient.getPurchase().push(theLibrary.searchBook(infoClient[j]));
+//				System.out.println("Hola");
+				Book aux = theLibrary.searchBook(infoClient[j]);
+				if(aux != null) {
+					theClient.getPurchase().push(aux);
+				}
+//				System.out.println(theClient.getPurchase().peek());
 			}
 			theLibrary.getTheClients().insert(theClient);
+//			System.out.println(theLibrary.getTheClients().isEmpty());
 		}
 		
 		System.out.println(theLibrary.attend(theLibrary.getTheClients()));
+	
 		
 		
 //		library = new Library(3, 3);

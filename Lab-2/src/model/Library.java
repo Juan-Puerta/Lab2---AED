@@ -67,39 +67,51 @@ public class Library {
 	public String attend(PriorityQueue<Client> readyClients) {
 		String theClientsReady = "";
 		int people = 0;
-//		while(readyClients.isEmpty()!=true) {
-			for(int i=0; i<boxes.length && readyClients.isEmpty() != true;i++) {
+
+			for(int i=0; i<boxes.length && readyClients.isEmpty() != true; i++) {
 				boxes[i] = readyClients.extractMin();
+//				System.out.println(boxes[i].getId());
 				people++;
 //				boxes[i].buyBook();
 //				if(boxes[i].getPurchase().size()==0) {
 //					theClientsReady += boxes[i].getId() + " "+boxes[i].getPurchaseAmount()+"\n"+ boxes[i].getTheBought()+" ";
 //				}
+//				System.out.println(boxes[i].getPurchase().peek().getIsbn());
+//				System.out.println(boxes[i].getPurchase().peek().getValue());
 			}
+//	System.out.println(people);
 			boolean finished = false;
-			for(int i=0; i<boxes.length && !finished ;i++) {
-				System.out.println(boxes[i].getPurchase().peek().getIsbn());
-				System.out.println(boxes[i].getPurchase().peek().getValue());
-				boxes[i].buyBook();
-				if(boxes[i].getPurchase().size()==0) {
-					theClientsReady += boxes[i].getId() + " "+boxes[i].getPurchaseAmount()+"\n"+ boxes[i].getTheBought()+" ";
-					boxes[i] = null;
-					people--;
+//			System.out.println(amountBoxes);
+			for(int i=0; i<amountBoxes && !finished ;i++) {
+				if(boxes[i] != null) {
+					boxes[i].buyBook();
+//					System.out.println(boxes[i].getId());
 				}
-				if(readyClients.isEmpty() == false) {
+//				System.out.println("///////////////////////////////////////////////");
+//				System.out.println(boxes[i].getPurchaseAmount());
+//				System.out.println(boxes[i].getTheBought());
+				if(boxes[i] != null) {
+					if(boxes[i].getPurchase().size()==0) {
+//						System.out.println(boxes[i].getId());
+						theClientsReady += boxes[i].getId() + " "+boxes[i].getPurchaseAmount()+"\n"+ boxes[i].getTheBought()+"\n";
+						boxes[i] = null;
+						people--;
+					}
+				}
+				if(readyClients.isEmpty() == false && boxes[i] == null) {
 					boxes[i] = readyClients.extractMin();
 					people++;
-				}
-				if(i == boxes.length-1) {
-					i = 0;
 				}
 				if(readyClients.isEmpty() == true && people == 0) {
 					finished = true;
 				}
-				
-				
+				if(i == boxes.length-1) {
+					i = -1;
+//					System.out.println(boxes.length-1);
+				}
+//				System.out.println(people);
 			}
-//		}
+
 		
 		return theClientsReady;
 		

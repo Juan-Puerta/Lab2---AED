@@ -15,7 +15,7 @@ public class Client implements Comparable<Client> {
 		this.purchase = new Stack<Book, String>() ;
 		this.purchaseAmount = 0;
 		this.time = time;
-		theBought = "";
+		this.theBought = "";
 	}
 
 
@@ -90,11 +90,11 @@ public class Client implements Comparable<Client> {
 	
 	public void buyBook() {
 		Book aux = null;
-		if(purchase.size()!=0) {
-			aux = purchase.pop();
-			theBought += aux.getIsbn()+" ";
-			purchaseAmount += aux.getValue();
-		}
+			if(purchase.size()!=0) {
+				aux = purchase.pop();
+				theBought += aux.getIsbn()+" ";
+				purchaseAmount += aux.getValue();
+			}
 		
 	}
 
