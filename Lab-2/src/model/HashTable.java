@@ -28,24 +28,16 @@ public static final double LIMIT_FACTOR = 0.65;
 			boolean insert = false;
 			for(int i = 0; i < sizesArreglo[indexSize] && !insert; i++) {
 				int position = funcionHash(key, i);
-//				if(posicion >= tamaniosArreglo[indexTamanio]) {
-//					posicion -= tamaniosArreglo[indexTamanio];
-//				}
 				if(arrayHash[position] == null) {
 					arrayHash[position] = new Node<T, K>(object);
 					arrayHash[position].setKey(key);;
 					slotFull++;
 					chargeFactor = calculateChargeFactor();
 					insert = true;
-//					System.out.println("Se inserto en: "+position);
 				}else {
 					if(arrayHash[position].getKey().equals(key)) {
-//						|| arregloHash[posicion].getPosition() == posicion
-//						arregloHash[posicion].getPosition() == posicion
 						insert = true;
-//						System.out.println("El objeto ya esta insertado o llave hash repetida");
 					}else {
-//						System.out.println("Colision en: "+position);
 					}
 				}
 			}
@@ -65,7 +57,6 @@ public static final double LIMIT_FACTOR = 0.65;
 			if(arrayHash[position] != null) {
 				if(arrayHash[position].getKey().equals(key)) {
 					temporary = (T) arrayHash[position].getDate();
-//					System.out.println("Eliminado en la posicion: "+position);
 					arrayHash[position] = null;
 					slotFull--;
 					chargeFactor = calculateChargeFactor();
@@ -83,13 +74,9 @@ public static final double LIMIT_FACTOR = 0.65;
 		T temporary = null;
 		for(int i = 0; i < arrayHash.length && !found; i++) {
 			int position = funcionHash(key, i);
-//			if(posicion >= arregloHash.length) {
-//				posicion -= arregloHash.length;
-//			}
 			if(arrayHash[position] != null) {
 				if(arrayHash[position].getKey().equals(key)) {
 					temporary = (T) arrayHash[position].getDate();
-//					System.out.println("Encontrado en la posicion: "+position);
 					found = true;
 				}
 			}
